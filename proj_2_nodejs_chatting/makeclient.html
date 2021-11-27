@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>client</title>
+
+    <style>
+        html{cursor: url(cursor.png), auto}
+        #abox {
+            position: relative;
+            top: 30px;
+            display: inline-block;
+            width: 100%;
+            height: 900px;
+            margin-bottom: 15px;
+            background-color: azure;
+            background-image: url("image/login.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: oblique;
+            font-weight: 700;
+            color: brown;
+        }
+
+        #bigbox {
+            width: 100%;
+            text-align: center;
+        }
+
+        #Name {
+            position: relative;
+            top: 460px;
+            left: -11px;
+            border: 1px solid #AAA;
+        }
+        #RoomNum {
+            position: relative;
+            top: 460px;
+            left: 0px;
+            border: 1px solid #AAA;
+        }
+        #button1 {
+            background-color:goldenrod;
+            position: relative;
+            top: 480px;
+            left: 1px;
+            border: 1px solid #AAA;
+        }
+        #button2 {
+            background-color:goldenrod;
+            position: relative;
+            top: 480px;
+            left: 0px;
+           border: 1px solid #AAA;
+        }
+        #button3 {
+            background-color:gold;
+            position: relative;
+            top: -36px;
+            left: 410px;
+            border: 0px;
+        }
+    </style>
+
+    <script>
+        function inputclient() {
+            var xhr = false;
+            if (window.ActiveXobject)
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            else if (window.XMLHttpRequest)
+                xhr = new XMLHttpRequest();
+            if (xhr) {
+                var Name = document.getElementById("Name");
+                var myroom = document.getElementById("RoomNum");
+                Number(myroom);
+                var name = "/inputclient/" + myroom.value + "?name=" + Name.value;
+                xhr.open("GET", myroom);
+                xhr.open("GET", name);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        inputRoom();
+                    }
+                }
+                xhr.send(null);
+            }
+        }//이름을 전송
+
+        function inputsclient() {
+            var xhr = false;
+            if (window.ActiveXobject)
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            else if (window.XMLHttpRequest)
+                xhr = new XMLHttpRequest();
+            if (xhr) {
+                var Name = document.getElementById("Name");
+                var myroom = document.getElementById("RoomNum");
+                Number(myroom);
+                var name = "/inputclient/" + myroom.value + "?name=" + "익명";
+                xhr.open("GET", myroom);
+                xhr.open("GET", name);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        inputRoom();
+                    }
+                }
+                xhr.send(null);
+            }
+
+        }//이름을 익명으로 전송
+
+        function inputRoom() {
+            var xhr = false;
+
+            if (window.ActiveXobject)
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            else if (window.XMLHttpRequest)
+                xhr = new XMLHttpRequest();
+
+            if (xhr) {
+                var Room = document.getElementById("RoomNum");
+                Number(Room);
+
+                var room = "/inputRoom?room=" + Room.value;
+                xhr.open("GET", room);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                    }
+                }
+                xhr.send(null);
+               movepage1();
+           }
+        }//방번호 전송
+        function movepage1() {
+            location.href = "/chatpage.html";
+        }
+        function movepage2() {
+            location.href = "/start.html";
+        }
+        window.onload = function () {
+            var Room = document.getElementById("RoomNum");
+        }
+/**/</script>
+
+</head>
+<body>
+    <div id="bigbox">
+        <div id="abox">
+            가까워 TALK
+            <br />
+           <button id="button3" onclick="movepage2()" style="width:1pt;height:1pt;"><img src="image/x.png" width="30" height="30"></button>
+            <input type="text" id="Name" style="width:250pt;height:40pt;" placeholder="아이디" />
+            <br />
+            <input type="number" id="RoomNum" size="30" style="width:250pt;height:40pt;" placeholder=" 방번호" />
+            <br />
+            <input id="button1" type="button" style="width:250pt;height:40pt;" onclick="inputclient()" value="방 입장" />
+            <br />
+            <input id="button2" type="button" style="width:250pt;height:40pt;" onclick="inputsclient()" value="익명으로 입장" />
+            <br />
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="my_array">
+        <item>tag</item>
+        <item>writer</item>
+        <item>title</item>
+    </string-array>
+    <string-array name="my_array2">
+        <item>wirte_date</item>
+        <item>like</item>
+    </string-array>
+    <string-array name="my_array3">
+        <item>animal</item>
+        <item>master</item>
+    </string-array>
+    <string-array name="my_array4">
+        <item>greyhound</item>
+        <item>maltese</item>
+        <item>bulldog</item>
+        <item>beagle</item>
+        <item>shepherd"</item>
+        <item>Shiba Inu</item>
+        <item>Shih Tzu</item>
+        <item>yorkshire terrier</item>
+        <item>Welsh Corgi</item>
+        <item>Chihuahua</item>
+        <item>Pomerania</item>
+        <item>poodle</item>
+        <item>Husky</item>
+    </string-array>
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".user_new_account">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A588D8"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="4"
+        android:background="@drawable/background"
+        >
+
+        <EditText
+            android:id="@+id/new_id_et"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:hint="ID"
+            android:lines="1"
+            android:minHeight="48dp"
+            android:singleLine="true"></EditText>
+
+        <EditText
+            android:id="@+id/new_password_et"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Password"
+            android:lines="1"
+            android:minHeight="48dp"
+
+            android:singleLine="true"></EditText>
+
+        <EditText
+            android:id="@+id/new_password2_et"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Password"
+            android:lines="1"
+            android:minHeight="48dp"
+
+            android:singleLine="true"></EditText>
+
+
+        <Button
+            android:id="@+id/new_account_bt"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_btn"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="회원가입"
+            >
+
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

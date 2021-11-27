@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="dataSource"
+		class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost/spring5fs?characterEncoding=utf-8&amp;serverTimezone=UTC" />
+		<property name="username" value="spring5" />
+		<property name="password" value="spring5" />
+		<property name="testWhileIdle" value="false" />
+		<property name="minEvictableIdleTimeMillis" value="180000" />
+	</bean>
+	<bean id="memberDAO" class="com.skuniv.mvc.MemberDAO"
+		scope="prototype">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<bean id="bookDAO" class="com.skuniv.mvc.BookDAO"
+		scope="prototype">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<bean id="serviceDAO" class="com.skuniv.mvc.ServiceDAO"
+		scope="prototype">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<bean id="findBook" class="com.skuniv.mvc.FindBook"
+		scope="prototype">
+		<constructor-arg ref="bookDAO" />
+	</bean>
+	<bean id="findMember" class="com.skuniv.mvc.FindMember"
+		scope="prototype">
+		<constructor-arg ref="memberDAO" />
+	</bean>
+	<bean id="showBook" class="com.skuniv.mvc.ShowBook"
+		scope="prototype">
+		<constructor-arg ref="bookDAO" />
+	</bean>
+	<bean id="showMember" class="com.skuniv.mvc.ShowMember"
+		scope="prototype">
+		<constructor-arg ref="memberDAO" />
+	</bean>
+	<bean id="borrowBook" class="com.skuniv.mvc.BorrowBook"
+		scope="prototype">
+		<constructor-arg ref="bookDAO" />
+		<constructor-arg ref="memberDAO" />
+		<constructor-arg ref="serviceDAO" />
+	</bean>
+	<bean id="returnBook" class="com.skuniv.mvc.ReturnBook"
+		scope="prototype">
+		<constructor-arg ref="bookDAO" />
+		<constructor-arg ref="memberDAO" />
+		<constructor-arg ref="serviceDAO" />
+	</bean>
+	<bean id="reserveBook" class="com.skuniv.mvc.ReserveBook"
+		scope="prototype">
+		<constructor-arg ref="bookDAO" />
+		<constructor-arg ref="memberDAO" />
+		<constructor-arg ref="serviceDAO" />
+	</bean>
+	<bean id="addBook" class="com.skuniv.mvc.AddBook">
+		<constructor-arg ref="bookDAO" />
+	</bean>
+	<bean id="addMember" class="com.skuniv.mvc.AddMember">
+		<constructor-arg ref="memberDAO" />
+	</bean>
+
+
+
+</beans>
