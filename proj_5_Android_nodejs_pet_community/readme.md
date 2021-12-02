@@ -12,9 +12,11 @@ https://www.youtube.com/watch?v=zPJbcwCqtr0
 기술 스택
 
 -프론트 엔드
+
 ![image](https://user-images.githubusercontent.com/69042111/143811401-6e84f385-1daf-4e31-aa7e-544eeb5cc524.png)
 
 -백 엔드
+
 ![image](https://user-images.githubusercontent.com/69042111/143811421-69c38b58-2264-442f-acae-8a02d93c6634.png)
 
 -구성 구현 풀스택
